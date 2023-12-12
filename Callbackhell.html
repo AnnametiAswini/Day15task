@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Countdown and Independence Day</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-size: 36px;
+      font-family: Arial, sans-serif;
+    }
+
+    #display {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="display"></div>
+
+  <script>
+    function countDown(start, end, callback) {
+      if (start <= end) {
+        document.getElementById('display').innerHTML = start;
+        setTimeout(function () {
+          countDown(start + 1, end, callback);
+        }, 1000);
+      } else {
+        callback();
+      }
+    }
+
+    countDown(1, 10, function () {
+      setTimeout(function () {
+        document.getElementById('display').innerHTML = 'Happy Independence Day';
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
